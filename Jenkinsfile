@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE_NAME = "eureka:latest"
+        DOCKER_IMAGE_NAME = "eureka:Marko"
     }
     stages {
         stage('Checkout') {
@@ -26,7 +26,7 @@ pipeline {
                     emailext (
                         subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER} ",
                         body: """CI/CD pipeline greska u "Docker" fazi. Log fajl se moze videti na: href=${env.BUILD_URL} """,
-                        to: "marija.jelicic@netcast.rs",
+                        to: "mmitrovic@raf.rs",
                         from: "jenkins@jenkins.netcast.rs"
                     )
                 }
@@ -39,7 +39,7 @@ pipeline {
             steps{
                 script{
                     sh '''
-                            docker run -d --name eureka -p 8761:8761 eureka:latest
+                            docker run -d --name eureka -p 24000:8761 eureka:latest
                         '''
                 }
             }
