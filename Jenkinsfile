@@ -16,7 +16,7 @@ pipeline {
             steps{
                 script{
                     sh '''
-                            docker image build -t eureka:latest .
+                            docker image build -t eureka:marko .
                         '''
                   // def app=docker.build(DOCKER_IMAGE_NAME)
                 }
