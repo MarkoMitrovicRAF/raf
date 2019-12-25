@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/marijajelicic/eureka'
+                git 'https://github.com/MarkoMitrovicRAF/raf.git'
             }
         }
         stage ('Docker') {
@@ -48,7 +48,7 @@ pipeline {
                     emailext (
                         subject: "Job '${env.JOB_NAME} ${env.BUILD_NUMBER} ",
                         body: """CI/CD pipeline greska u "Build" fazi. Log fajl se moze videti na: href=${env.BUILD_URL} """,
-                        to: "marija.jelicic@netcast.rs",
+                        to: "mmitrovic@raf.rs",
                         from: "jenkins@jenkins.netcast.rs"
                     )
                 }
